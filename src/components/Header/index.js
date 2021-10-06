@@ -10,6 +10,7 @@ const Header = () => (
     <Content>
       <Logo />
       <NavBar>
+        <Link to="/">Home</Link>
         <Link to="/signup">SignUp</Link>
         <Link to="/login">LogIn</Link>
 

@@ -1,10 +1,10 @@
-const baseUrl = 'localhost://3000';
+const baseUrl = 'http://localhost:3000/';
 
 async function sendRequest(url) {
   const endPoint = `${baseUrl}${url}`;
   const response = await fetch(endPoint);
   return response.json();
 }
-const beaches = () => sendRequest('beaches');
+const beachesData = () => sendRequest('beaches');
 
-export default beaches;
+export default beachesData;

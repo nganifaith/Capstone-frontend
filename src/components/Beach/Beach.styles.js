@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const Image = styled.img`
-  width: 100%;
-  max-width: 720px;
+  max-width: 500px;
   transition: all 0.3s;
   object-fit: cover;
   border-radius: 20px;
   animation: animateThumb 0.5s;
   box-shadow: 5px 5px 10px 5px rgb(220 219 219 / 92%);
-  max-height: 250px;
+  height: 600px;
+  margin: 10px;
 
   :hover {
     opacity: 0.8;

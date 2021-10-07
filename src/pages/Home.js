@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setBeaches } from '../actions';
-import beachesData from '../API';
+import { beachesData } from '../API';
 import Main from '../components/Main';
 import Beach from '../components/Beach';
 import SearchBar from '../components/SearchBar';

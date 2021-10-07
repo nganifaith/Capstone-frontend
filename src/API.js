@@ -5,6 +5,5 @@ async function sendRequest(url) {
   const response = await fetch(endPoint);
   return response.json();
 }
-const beachesData = () => sendRequest('beaches');
-
-export default beachesData;
+export const beachesData = () => sendRequest('beaches');
+export const getbeachDetails = (id) => sendRequest(`beaches/${id}`);

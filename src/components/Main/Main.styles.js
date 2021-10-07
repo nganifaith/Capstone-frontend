@@ -14,7 +14,8 @@ export const Wrapper = styled.div`
   }
 `;
 export const Content = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  grid-gap: 2rem;
+  display: flex;
+  overflow: auto;
+  flex-wrap: nowrap;
+  margin: 10px;
 `;

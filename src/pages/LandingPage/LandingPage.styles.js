@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
     font-size: 16px;
     border-radius: 50px;
     transition-duration: 0.4s;
+    margin: 5px;
 
     :hover {
       box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
@@ -50,6 +51,12 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   color: black;
+
+  h2 {
+    text-transform: uppercase;
+    opacity: 0.5;
+    font-size: 12px;
+  }
 `;
 
 export const StatsContent = styled.div`
@@ -61,6 +68,7 @@ export const StatsContent = styled.div`
 
 export const Image = styled.img`
   width: 45%;
+  margin-bottom: 10px;
 `;
 export const VisitContent = styled.div`
   display: flex;

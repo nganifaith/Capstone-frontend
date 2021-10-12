@@ -1,15 +1,24 @@
 import styled from 'styled-components';
 
+export const Wrapper = styled.div`
+    box-shadow: 0px 0px 10px 1px rgb(220 219 219 / 92%);
+    margin: 10px;
+    min-width: 400px;
+    border-radius: 5px;
+    overflow: hidden;
+
+    a {
+      text-decoration: none;
+    }
+ `;
+
 export const Image = styled.img`
-  max-width: 500px;
   transition: all 0.3s;
   object-fit: cover;
-  border-radius: 20px;
   animation: animateThumb 0.5s;
-  box-shadow: 5px 5px 10px 5px rgb(220 219 219 / 92%);
-  height: 600px;
-  margin: 10px;
-
+  height: 350px;
+  width: 100%;
+  
   :hover {
     opacity: 0.8;
   }
@@ -25,19 +34,30 @@ export const Image = styled.img`
 `;
 
 export const Content = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 30px;
-  padding: 2px;
+  text-align: left;
+  padding: 0 10px;
+  box-sizing: border-box;
+  padding-right: 100px;
+  position: relative;
 
   h1 {
-    font-size: var(--fontMed);
-    padding-right: 2px;
-    margin-right: 5px;
+    font-size: 15px;
+    margin: 0;
+  }
 
-    &:not(:last-child) {
-      border-right: 2px solid var(--medGrey);
-    }
+  p {
+    margin: 5px 0;
+    font-size: 12px;
+    color: #000;
+    opacity: 0.7;
+  }
+
+  i.fav {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 35px;
+    color: #000;
+    opacity: 0.7;
   }
 `;

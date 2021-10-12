@@ -9,6 +9,8 @@ const GlobalStyles = createGlobalStyle`
     --darkGrey: #1c1c1c;
     --fontMed: 1.2rem;
     --fontSmall: 1rem;
+    --max-width: 1224px;
+    --default-x-padding: 50px;
   }
 
   * {

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import image from '../../images/background.jpg';
 
 export const Wrapper = styled.div`
-  height: 100vh;
   width: 100vw;
   justify-content: center;
 
@@ -26,24 +25,39 @@ export const Wrapper = styled.div`
 `;
 
 export const Header = styled.div`
-  background-image: url(${image}),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.95), orange);
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(${image});
   height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-top: -70px;
+  padding-top: 70px;
 `;
 
 export const HeaderContent = styled.div`
-  justify-content: center;
-  align-items: start;
-  padding: 5px;
-  max-width: 720px;
+  max-width: var(--max-width);
+  margin: auto;
+  text-align: left;
+  color: var(--white);
+  padding: 70px var(--default-x-padding);
+
+  h1 {
+    max-width: 100%;
+    width: 250px;
+  }
 
   h4 {
     text-transform: capitalize;
     color: white;
     justify-content: start;
+    font-weight: normal;
+    max-width: 100%;
+    width: 400px;
   }
 `;
 
@@ -51,6 +65,12 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   color: black;
+  
+  & > div:first-child {
+    max-width: var(--max-width);
+    padding: 70px var(--default-x-padding) 0;
+    margin: auto;
+  }
 
   h2 {
     text-transform: uppercase;
@@ -64,18 +84,40 @@ export const StatsContent = styled.div`
   align-items: center;
   justify-content: center;
   margin: auto;
+  max-width: var(--max-width);
+  padding: 0 var(--default-x-padding) 70px;
+  flex-wrap: wrap;
+
+  & > * {
+    flex: 1;
+    margin: 20px;
+    text-align: left;
+  }
 `;
 
 export const Image = styled.img`
-  width: 45%;
+  max-width: 550px;
+  width: 100%;
   margin-bottom: 10px;
 `;
 export const VisitContent = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
   background: #e7f0ff;
+
+  & > div {
+    max-width: var(--max-width);
+    padding: 70px var(--default-x-padding);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    & > * {
+      flex: 1;
+      margin: 20px;
+      text-align: right;
+    }
+  }
 `;
 
 export const UserSection = styled.div`
@@ -83,4 +125,20 @@ export const UserSection = styled.div`
   flex-wrap: nowrap;
   background: #f8f7f7;
   overflow: scroll;
+  padding: 70px;
+`;
+
+export const LastSection = styled.div`
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.25)
+    ),
+    url(${image});
+  align-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 70px;
+  color: var(--white);
 `;

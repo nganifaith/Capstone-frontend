@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import BeachDetails from './pages/BeachDetails';
 import Home from './pages/Home';
@@ -17,6 +18,7 @@ const Routes = () => (
       <Route path="/login" component={SignInPage} />
       <Route path="/beach/:id" component={BeachDetails} />
     </Switch>
+    <Footer />
   </BrowserRouter>
 );
 

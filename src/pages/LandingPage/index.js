@@ -13,6 +13,7 @@ import {
   Header,
   HeaderContent,
   Image,
+  LastSection,
   StatsContent,
   UserSection,
   VisitContent,
@@ -62,14 +63,16 @@ const LandingPage = () => {
           <Image src={img} />
         </StatsContent>
         <VisitContent>
-          <Image src={nature} />
           <div>
-            <h1>Relax with a beautiful view </h1>
-            <p>
-              Our yearly visits stats. Focusing a `background-image` on a
-              Precise Location with Percentages
-            </p>
-            <Link to="/login">Start for free</Link>
+            <Image src={nature} />
+            <div>
+              <h1>Relax with a beautiful view </h1>
+              <p>
+                Our yearly visits stats. Focusing a `background-image` on a
+                Precise Location with Percentages
+              </p>
+              <Link to="/login">Start for free</Link>
+            </div>
           </div>
         </VisitContent>
       </Content>
@@ -78,6 +81,10 @@ const LandingPage = () => {
           <RandomUsers key={user.id} user={user} />
         ))}
       </UserSection>
+      <LastSection>
+        <h3>Connect with Nature</h3>
+        <Link to="/login">Start for free</Link>
+      </LastSection>
     </Wrapper>
   );
 };

@@ -11,7 +11,7 @@ export const Content = styled.div`
   flex-direction: column;
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;

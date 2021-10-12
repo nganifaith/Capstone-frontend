@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { setBeachDetails } from '../../actions';
-import { getbeachDetails } from '../../API';
+import { getbeachDetails } from '../../Api';
 import { getDetails } from '../../reducers/beachDetails';
 import {
   BeachImage,

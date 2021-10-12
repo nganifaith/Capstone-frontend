@@ -77,3 +77,10 @@ export const VisitContent = styled.div`
   margin: auto;
   background: #e7f0ff;
 `;
+
+export const UserSection = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  background: #f8f7f7;
+  overflow: scroll;
+`;

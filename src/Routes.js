@@ -11,13 +11,16 @@ import SignUpPage from './pages/SignUp';
 const Routes = () => (
   <BrowserRouter>
     <Header />
-    <Switch>
-      <Route exact path="/" component={LandingPage} />
-      <Route path="/dashboard" component={Home} />
-      <Route path="/signup" component={SignUpPage} />
-      <Route path="/login" component={SignInPage} />
-      <Route path="/beach/:id" component={BeachDetails} />
-    </Switch>
+    <div className="PageContent">
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/dashboard" component={Home} />
+        <Route path="/signup" component={SignUpPage} />
+        <Route path="/login" component={SignInPage} />
+        <Route path="/beach/:id" component={BeachDetails} />
+      </Switch>
+    </div>
+
     <Footer />
   </BrowserRouter>
 );

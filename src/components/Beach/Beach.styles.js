@@ -3,9 +3,14 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
     box-shadow: 0px 0px 10px 1px rgb(220 219 219 / 92%);
     margin: 10px;
-    min-width: 400px;
+    min-width: 300px;
     border-radius: 5px;
     overflow: hidden;
+    background: var(--white);
+
+    @media only screen and (min-width: 767px) {
+      min-width: 400px;
+    }
 
     a {
       text-decoration: none;

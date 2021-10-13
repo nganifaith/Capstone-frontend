@@ -5,7 +5,11 @@ import { Content, Wrapper } from './Main.styles';
 
 const Main = ({ header, children }) => (
   <Wrapper>
-    <h1>{header}</h1>
+    <h1>
+      Listings -
+      {' '}
+      {header}
+    </h1>
     <Content>{children}</Content>
   </Wrapper>
 );

@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import searchIcon from '../../images/search-icon.svg';
+import { Icon, Input, Wrapper } from './SearchBar.styles';
 
-import { Wrapper, Content } from './SearchBar.styles';
-
-const SearchBar = ({ setSearchTerm }) => (
-  <Wrapper>
-    <Content>
-      <img src={searchIcon} alt="search-icon" />
-      <input
+const SearchBar = ({ setSearchTerm }) => {
+  const [open, setOpen] = useState();
+  return (
+    <Wrapper>
+      <Input
         type="text"
-        placeholder="Search A Meal"
+        placeholder="Search"
         onChange={(e) => setSearchTerm(e.currentTarget.value)}
+        open={open}
       />
-    </Content>
-  </Wrapper>
-);
+      <Icon onClick={() => setOpen(!open)} className="material-icons">
+        { open ? 'close' : 'search' }
+      </Icon>
+    </Wrapper>
+  );
+};
 
 SearchBar.propTypes = {
   setSearchTerm: PropTypes.func.isRequired,

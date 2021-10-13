@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  max-width: var(--maxWidth);
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 20px;
 
   h1 {
     color: var(--medGrey);
@@ -17,5 +16,4 @@ export const Content = styled.div`
   display: flex;
   overflow: auto;
   flex-wrap: nowrap;
-  margin: 10px;
 `;

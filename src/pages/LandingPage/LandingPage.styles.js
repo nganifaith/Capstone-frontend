@@ -43,7 +43,7 @@ export const HeaderContent = styled.div`
   max-width: var(--max-width);
   margin: auto;
   text-align: left;
-  color: var(--white);
+  color: var(--main-bg);
   padding: 70px var(--default-x-padding);
 
   h1 {
@@ -140,5 +140,5 @@ export const LastSection = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   padding: 70px;
-  color: var(--white);
+  color: var(--main-bg);
 `;

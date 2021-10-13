@@ -5,8 +5,6 @@ const Content = styled.div`
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  margin: auto;
-  padding: 30px;
   width: 100vw;
 `;
 

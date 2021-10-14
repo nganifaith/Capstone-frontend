@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
     box-shadow: 0px 0px 10px 1px rgb(220 219 219 / 92%);
@@ -40,7 +40,7 @@ export const Image = styled.img`
 
 export const Content = styled.div`
   text-align: left;
-  padding: 0 10px;
+  padding: 10px;
   box-sizing: border-box;
   padding-right: 100px;
   position: relative;
@@ -56,13 +56,17 @@ export const Content = styled.div`
     color: #000;
     opacity: 0.7;
   }
+`;
 
-  i.fav {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    font-size: 35px;
-    color: #000;
-    opacity: 0.7;
-  }
+export const HeartIcon = styled.span`
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 35px;
+  color: #000;
+  opacity: 0.7;
+
+  ${({ active }) => active && css`
+    color: red;
+  `}
 `;

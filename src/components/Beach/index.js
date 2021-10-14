@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
-import { Image, Content, Wrapper } from './Beach.styles';
+import {
+  Image, Content, Wrapper, HeartIcon,
+} from './Beach.styles';
 import Rating from '../Rating';
 
-const Beach = ({ beach }) => (
+const Beach = ({ beach, toggleFav }) => (
   <Wrapper>
     <Link to={`/beach/${beach.id}`}>
       <Image src={`${beach.image}?id=${beach.id}`} alt="Nature image" />
@@ -18,7 +20,7 @@ const Beach = ({ beach }) => (
           { beach.city }
         </p>
         <Rating value={beach.rating} />
-        <i className="material-icons fav">favorite_border</i>
+        <HeartIcon className="material-icons" active={beach.isFav} onClick={toggleFav}>{beach.isFav ? 'favorite' : 'favorite_border'}</HeartIcon>
       </Content>
     </Link>
   </Wrapper>
@@ -32,7 +34,9 @@ Beach.propTypes = {
     country: PropTypes.string,
     city: PropTypes.string,
     rating: PropTypes.number,
+    isFav: PropTypes.bool,
   }).isRequired,
+  toggleFav: PropTypes.func.isRequired,
 };
 
 export default Beach;

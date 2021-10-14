@@ -5,7 +5,9 @@ export const SET_SEARCH_TERM = 'SET_SEARCH_TERM';
 
 export const setBeaches = (beaches) => ({
   type: SET_BEACH,
-  payload: beaches || [],
+  payload: beaches
+    .map((beach) => ({ ...beach, isFav: beach.favorite.length > 0 }))
+    || [],
 });
 
 export const setBeachDetails = (beach) => ({

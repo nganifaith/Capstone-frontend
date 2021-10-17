@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import useAuth from '../../hooks/useAuth';
 import {
   Button, Content, Form, Wrapper,
 } from './SignUp.styles';
@@ -8,11 +10,28 @@ const SignUpPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
+  const { register } = useAuth();
+  const history = useHistory();
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      return setError('Password and confirm password must match');
+    }
+
+    return register(email, name, password, confirmPassword)
+      .then(() => history.push('/'))
+      .catch((e) => {
+        setError('There was an error registering you. Please check your input and try again later.', e);
+      });
+  };
 
   return (
     <Wrapper>
       <Content>
-        <Form>
+        <Form onSubmit={onSubmit}>
+          <span>{error}</span>
           <label htmlFor="name">
             Name
             <input
@@ -35,7 +54,7 @@ const SignUpPage = () => {
             Password
             <input
               id="password"
-              type="text"
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -44,7 +63,7 @@ const SignUpPage = () => {
             Confirm Password
             <input
               id="confirm"
-              type="text"
+              type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />

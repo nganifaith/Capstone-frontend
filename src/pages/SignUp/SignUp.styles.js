@@ -16,7 +16,7 @@ export const Form = styled.div`
   background-color: #f2f2f2;
   padding: 20px;
 
-  input[type='text'] {
+  input {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

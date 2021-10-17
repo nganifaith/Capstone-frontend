@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, setAuthToken } from '../actions/currentUser';
-import { getCurrentUser, signIn as signUserIn } from '../Api/auth';
+import { getCurrentUser, signIn as signUserIn, signUp } from '../Api/auth';
 
 export default function useAuth() {
   const [loading, setLoading] = useState();
@@ -28,10 +28,17 @@ export default function useAuth() {
     await loadCurrentUser();
   }
 
+  function register(email, username, password, confirmPassword) {
+    return signUp(username, email, password, confirmPassword)
+      .then(() => signIn(email, password));
+  }
+
   return {
     loading,
     signIn,
     currentUser,
+    userId: currentUser?.id,
     loadCurrentUser,
+    register,
   };
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 
 import { useDispatch } from 'react-redux';
 import {
@@ -9,13 +9,21 @@ import {
 import useAuth from '../../hooks/useAuth';
 import SearchBar from '../SearchBar';
 import { setSearchTerm } from '../../actions';
+import { logout } from '../../actions/currentUser';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState();
   const [open, setOpen] = useState();
   const location = useLocation();
+  const history = useHistory();
   const { currentUser } = useAuth();
   const dispatch = useDispatch();
+
+  const signOut = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+    history.push('/');
+  };
 
   useEffect(() => {
     function checkScroll() {
@@ -30,11 +38,11 @@ const Header = () => {
       <Content>
         <NavBar open={open} onClick={() => setOpen(false)} home={location.pathname === '/'}>
           <Link to="/">Home</Link>
-          {!currentUser && <Link to="/signup">Sign Up</Link>}
-          {!currentUser && <Link to="/login">Log In</Link>}
           <Link to="/dashboard">Listings</Link>
           {currentUser && <Link to="/dashboard?favourites=yes">Favourites</Link>}
-          {currentUser && <Link to="/logout">Sign Out</Link>}
+          {currentUser && <Link to="/logout" onClick={signOut}>Sign Out</Link>}
+          {!currentUser && <Link to="/signup">Sign Up</Link>}
+          {!currentUser && <Link to="/login">Log In</Link>}
         </NavBar>
         {location.pathname === '/dashboard' && <SearchBar setSearchTerm={(value) => dispatch(setSearchTerm(value))} />}
         <MenuToggler onClick={() => setOpen(!open)}>

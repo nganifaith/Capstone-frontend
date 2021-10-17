@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { setBeachDetails } from '../../actions';
 import { getbeachDetails } from '../../Api';
+import Rating from '../../components/Rating';
 import { getDetails } from '../../reducers/beachDetails';
 import {
   BeachImage,
@@ -24,18 +25,27 @@ const BeachDetails = () => {
   }, [id]);
   return (
     <Wrapper>
-      <Details>{beachDetails.details}</Details>
       <Content>
         <BeachImage src={beachDetails.image} alt="Nature" />
-        <Contact>
-          <div>
-            <h1>Contact Us </h1>
-            <h3>{beachDetails.email}</h3>
-            <h3>{beachDetails.phone_number}</h3>
-            <h3>{beachDetails.website}</h3>
-          </div>
-          <div>{beachDetails.name}</div>
-        </Contact>
+        <Details>
+          <h2>{beachDetails.name}</h2>
+          <Contact>
+            <Rating value={beachDetails.rating} />
+            <span>
+              {beachDetails.email}
+            </span>
+            <span>
+              {beachDetails.phone_number}
+            </span>
+          </Contact>
+        </Details>
+      </Content>
+      <Content>
+        <p>
+          {beachDetails.details}
+        </p>
+
+        <a href={beachDetails.website} target="_blank" rel="noreferrer">Visit Website</a>
       </Content>
     </Wrapper>
   );

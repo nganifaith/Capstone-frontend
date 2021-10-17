@@ -3,10 +3,12 @@ export const SET_BEACH_DETAILS = 'SET_BEACH_DETAILS';
 export const SET_USER_DATA = 'SET_USER_DATA';
 export const SET_SEARCH_TERM = 'SET_SEARCH_TERM';
 
-export const setBeaches = (beaches) => ({
+const containsId = (favs, id) => favs.some(({ user_id: userId }) => id === userId);
+
+export const setBeaches = (beaches, userId) => ({
   type: SET_BEACH,
   payload: beaches
-    .map((beach) => ({ ...beach, isFav: beach.favorite.length > 0 }))
+    .map((beach) => ({ ...beach, isFav: containsId(beach.favorite, userId) }))
     || [],
 });
 

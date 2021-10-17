@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import { setBeaches } from '../actions';
 import { beachesData, removeFavourite, setFavourite } from '../Api';
 import Main from '../components/Main';
 import Beach from '../components/Beach';
 import { getBeaches, getSearchTerm } from '../reducers/beachesList';
+import useAuth from '../hooks/useAuth';
 
 function useQuery() {
   const { search } = useLocation();
@@ -16,6 +17,8 @@ const Home = () => {
   const [error, setError] = useState('');
   const dispatch = useDispatch();
   const { favourites } = useQuery();
+  const { userId } = useAuth();
+  const history = useHistory();
 
   const beaches = useSelector(getBeaches);
   const searchTerm = useSelector(getSearchTerm);
@@ -23,8 +26,13 @@ const Home = () => {
   const toggleFav = (e, { id, isFav }) => {
     e.preventDefault();
     e.stopPropagation();
+
+    if (!userId) {
+      return history.push('/login');
+    }
+
     const action = !isFav ? setFavourite : removeFavourite;
-    const fav = isFav ? [] : [1];
+    const fav = isFav ? [] : [{ user_id: userId }];
     return action(id).then(() => {
       const newBeaches = beaches.map((beach) => (
         {
@@ -32,14 +40,14 @@ const Home = () => {
           favorite: id === beach.id ? fav : beach.favorite,
         }
       ));
-      dispatch(setBeaches(newBeaches));
+      dispatch(setBeaches(newBeaches, userId));
     });
   };
 
   useEffect(() => {
     setError('');
     beachesData({ searchTerm, favourites: !!favourites }).then((beaches) => {
-      dispatch(setBeaches(beaches));
+      dispatch(setBeaches(beaches, userId));
     });
   }, [searchTerm, favourites]);
 

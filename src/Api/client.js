@@ -1,6 +1,6 @@
 import { getToken } from '../actions/currentUser';
 
-const baseUrl = 'http://localhost:3000/';
+export const baseUrl = 'http://localhost:3000/';
 
 function getOptions(method, params, isFormData) {
   const headers = {

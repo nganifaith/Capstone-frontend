@@ -1,4 +1,5 @@
 import { SET_BEACH_DETAILS } from '../actions';
+import { baseUrl } from '../Api/client';
 
 export default function BeachDetailstReducer(state = {}, action) {
   switch (action.type) {
@@ -10,4 +11,4 @@ export default function BeachDetailstReducer(state = {}, action) {
 }
 
 export const getDetails = (state) => state.beachDetails;
-export const getImage = ({ image, featured_image: featuredImage, id }) => featuredImage || `${image}?id=${id}`;
+export const getImage = ({ featured_image: featuredImage }) => (`${featuredImage}`.startsWith('http') ? featuredImage : `${baseUrl}${featuredImage}`);

@@ -23,7 +23,7 @@ const Home = () => {
   const beaches = useSelector(getBeaches);
   const searchTerm = useSelector(getSearchTerm);
 
-  const toggleFav = (e, { id, isFav }) => {
+  const toggleFav = (e, { id, fav }) => {
     e.preventDefault();
     e.stopPropagation();
 
@@ -31,23 +31,22 @@ const Home = () => {
       return history.push('/login');
     }
 
-    const action = !isFav ? setFavourite : removeFavourite;
-    const fav = isFav ? [] : [{ user_id: userId }];
+    const action = !fav ? setFavourite : removeFavourite;
     return action(id).then(() => {
       const newBeaches = beaches.map((beach) => (
         {
           ...beach,
-          favorite: id === beach.id ? fav : beach.favorite,
+          fav: id === beach.id ? !fav : beach.fav,
         }
       ));
-      dispatch(setBeaches(newBeaches, userId));
+      dispatch(setBeaches(newBeaches));
     });
   };
 
   useEffect(() => {
     setError('');
     beachesData({ searchTerm, favourites: !!favourites }).then((beaches) => {
-      dispatch(setBeaches(beaches, userId));
+      dispatch(setBeaches(beaches));
     });
   }, [searchTerm, favourites]);
 

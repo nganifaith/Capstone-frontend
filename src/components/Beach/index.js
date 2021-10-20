@@ -21,7 +21,7 @@ const Beach = ({ beach, toggleFav }) => (
           { beach.city }
         </p>
         <Rating value={beach.rating} />
-        <HeartIcon className="material-icons" active={beach.isFav} onClick={toggleFav}>{beach.isFav ? 'favorite' : 'favorite_border'}</HeartIcon>
+        <HeartIcon className="material-icons" active={beach.fav} onClick={toggleFav}>{beach.fav ? 'favorite' : 'favorite_border'}</HeartIcon>
       </Content>
     </Link>
   </Wrapper>
@@ -36,7 +36,7 @@ Beach.propTypes = {
     country: PropTypes.string,
     city: PropTypes.string,
     rating: PropTypes.number,
-    isFav: PropTypes.bool,
+    fav: PropTypes.bool,
   }).isRequired,
   toggleFav: PropTypes.func.isRequired,
 };

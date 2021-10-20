@@ -4,6 +4,12 @@ export const Wrapper = styled.div`
   max-width: 800px;
   margin: auto;
   padding: 10px;
+
+  .Error {
+    color: red;
+    font-size: 10px;
+    margin: 10px 0;
+  }
 `;
 
 export const Content = styled.div`
@@ -11,7 +17,7 @@ export const Content = styled.div`
   flex-direction: column;
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;

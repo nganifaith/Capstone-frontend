@@ -16,6 +16,8 @@ const SignUpPage = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setError('');
+
     if (password !== confirmPassword) {
       return setError('Password and confirm password must match');
     }
@@ -31,13 +33,14 @@ const SignUpPage = () => {
     <Wrapper>
       <Content>
         <Form onSubmit={onSubmit}>
-          <span>{error}</span>
+          <div className="Error">{error}</div>
           <label htmlFor="name">
             Name
             <input
               id="name"
               type="text"
               value={name}
+              required
               onChange={(e) => setName(e.target.value)}
             />
           </label>
@@ -45,7 +48,8 @@ const SignUpPage = () => {
             Email
             <input
               id="email"
-              type="text"
+              type="email"
+              required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -55,6 +59,7 @@ const SignUpPage = () => {
             <input
               id="password"
               type="password"
+              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -63,6 +68,7 @@ const SignUpPage = () => {
             Confirm Password
             <input
               id="confirm"
+              required
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}

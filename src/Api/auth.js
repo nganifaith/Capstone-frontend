@@ -9,7 +9,7 @@ export function getCurrentUser() {
 }
 
 export function signUp(name, email, password, confirmation) {
-  sendRequest('auth/signup', 'POST', {
+  return sendRequest('auth/signup', 'POST', {
     name, email, password, password_confirmation: confirmation,
   });
 }

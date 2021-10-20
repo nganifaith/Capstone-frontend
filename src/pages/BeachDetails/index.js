@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { setBeachDetails } from '../../actions';
 import { getbeachDetails } from '../../Api';
 import Rating from '../../components/Rating';
-import { getDetails } from '../../reducers/beachDetails';
+import { getDetails, getImage } from '../../reducers/beachDetails';
 import {
   BeachImage,
   Contact,
@@ -26,11 +26,11 @@ const BeachDetails = () => {
   return (
     <Wrapper>
       <Content>
-        <BeachImage src={beachDetails.image} alt="Nature" />
+        <BeachImage src={getImage(beachDetails)} alt="Nature" />
         <Details>
           <h2>{beachDetails.name}</h2>
           <Contact>
-            <Rating value={beachDetails.rating} />
+            <Rating value={beachDetails.rating || 0} />
             <span>
               {beachDetails.email}
             </span>

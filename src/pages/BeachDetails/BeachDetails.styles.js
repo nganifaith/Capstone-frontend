@@ -22,6 +22,22 @@ export const Details = styled.div`
 
 export const Content = styled.div`
   position: relative;
+
+  p {
+    min-height: 100px;
+    padding: 20px;
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    max-width: 300px;
+    margin: auto;
+    text-decoration: none;
+    background: var(--medGrey);
+    color: var(--white);
+  }
 `;
 
 export const BeachImage = styled.img`

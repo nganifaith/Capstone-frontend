@@ -10,3 +10,4 @@ export default function BeachDetailstReducer(state = {}, action) {
 }
 
 export const getDetails = (state) => state.beachDetails;
+export const getImage = ({ image, featured_image: featuredImage, id }) => featuredImage || `${image}?id=${id}`;

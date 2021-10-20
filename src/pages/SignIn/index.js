@@ -27,12 +27,12 @@ const SignInPage = () => {
     <Wrapper>
       <Content>
         <Form onSubmit={(e) => handleSubmit(e)}>
-          {error}
+          <div className="Error">{error}</div>
           <label htmlFor="email">
             Email
             <input
               id="email"
-              type="text"
+              type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />

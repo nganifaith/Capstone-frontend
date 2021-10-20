@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const RatingWrapper = styled.div`
   display: flex;
@@ -11,6 +11,13 @@ const RatingWrapper = styled.div`
   i.Active {
     color: #ffa013;
   }
+
+  ${({ input }) => input && css`
+    margin: 10px 0;
+    i {
+      cursor: pointer;
+    }
+  `}
 `;
 
 export default RatingWrapper;

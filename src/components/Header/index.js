@@ -16,7 +16,7 @@ const Header = () => {
   const [open, setOpen] = useState();
   const location = useLocation();
   const history = useHistory();
-  const { currentUser } = useAuth();
+  const { currentUser, isAdmin } = useAuth();
   const dispatch = useDispatch();
 
   const signOut = (e) => {
@@ -40,6 +40,7 @@ const Header = () => {
           <Link to="/">Home</Link>
           <Link to="/dashboard">Listings</Link>
           {currentUser && <Link to="/dashboard?favourites=yes">Favourites</Link>}
+          {isAdmin && <Link to="/create">Create Beach</Link>}
           {currentUser && <Link to="/logout" onClick={signOut}>Sign Out</Link>}
           {!currentUser && <Link to="/signup">Sign Up</Link>}
           {!currentUser && <Link to="/login">Log In</Link>}

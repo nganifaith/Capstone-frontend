@@ -6,11 +6,12 @@ import {
   Image, Content, Wrapper, HeartIcon,
 } from './Beach.styles';
 import Rating from '../Rating';
+import { getImage } from '../../reducers/beachDetails';
 
 const Beach = ({ beach, toggleFav }) => (
   <Wrapper>
     <Link to={`/beach/${beach.id}`}>
-      <Image src={`${beach.image}?id=${beach.id}`} alt="Nature image" />
+      <Image src={getImage(beach)} alt="Nature image" />
       <Content>
         <h1>{beach.name}</h1>
         <p>
@@ -29,7 +30,8 @@ const Beach = ({ beach, toggleFav }) => (
 Beach.propTypes = {
   beach: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
+    featured_image: PropTypes.string,
+    image: PropTypes.string,
     name: PropTypes.string.isRequired,
     country: PropTypes.string,
     city: PropTypes.string,

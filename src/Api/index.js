@@ -5,6 +5,8 @@ const toParams = (params) => new URLSearchParams(params);
 export const beachesData = (params) => sendRequest(`beaches?${toParams(params)}`);
 export const getbeachDetails = (id) => sendRequest(`beaches/${id}`);
 
+// get Random users for landing page display.
+// This call does not back use of the Rails backend API
 export async function randomUsersData() {
   const endPoint = 'https://random-data-api.com/api/users/random_user?size=9';
   const response = await fetch(endPoint);

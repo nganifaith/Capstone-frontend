@@ -1,4 +1,4 @@
-import sendRequest from './client';
+import sendRequest, { send } from './client';
 
 const toParams = (params) => new URLSearchParams(params);
 
@@ -17,4 +17,16 @@ export function setFavourite(id) {
 
 export function removeFavourite(id) {
   return sendRequest('favorites/delete', 'DELETE', { beach_id: id });
+}
+
+export function createBeach(beach, image) {
+  let data = new FormData();
+  data = Object.keys(beach)
+    .reduce((form, key) => {
+      form.append(`beach[${key}]`, beach[key]);
+      return form;
+    }, data);
+
+  data.append('beach[featured_image]', image);
+  return send('beaches', 'POST', data, true);
 }

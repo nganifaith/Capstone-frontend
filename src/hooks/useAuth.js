@@ -7,6 +7,7 @@ export default function useAuth() {
   const [loading, setLoading] = useState();
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser.user);
+  const isAdmin = currentUser?.email === 'admin@admin.com';
 
   async function loadCurrentUser() {
     setLoading(true);
@@ -37,6 +38,7 @@ export default function useAuth() {
     loading,
     signIn,
     currentUser,
+    isAdmin,
     userId: currentUser?.id,
     loadCurrentUser,
     register,

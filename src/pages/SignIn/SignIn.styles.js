@@ -4,6 +4,12 @@ export const Wrapper = styled.div`
   max-width: 800px;
   margin: auto;
   padding: 10px;
+
+  .Error {
+    color: red;
+    font-size: 10px;
+    margin: 10px 0;
+  }
 `;
 
 export const Content = styled.div`
@@ -28,15 +34,15 @@ export const Form = styled.form`
 `;
 
 export const Button = styled.button`
-  background-color: #4caf50;
-  color: white;
-  padding: 15px 32px;
+  display: block;
   text-align: center;
+  padding: 20px;
+  width: 300px;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 12px;
-  transition-duration: 0.4s;
+  background: var(--medGrey);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
 
   :hover {
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),

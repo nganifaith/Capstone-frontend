@@ -2,27 +2,35 @@ import { getToken } from '../actions/currentUser';
 
 const baseUrl = 'http://localhost:3000/';
 
-function getOptions(method, params) {
+function getOptions(method, params, isFormData) {
+  const headers = {
+    Authorization: `Bearer ${getToken()}`,
+  };
+
+  if (!isFormData) {
+    headers['Content-Type'] = 'application/json';
+  }
+
   return {
     method,
     mode: 'cors', // no-cors, *cors, same-origin
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'same-origin', // include, *same-origin, omit
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${getToken()}`,
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
+    headers,
     redirect: 'follow', // manual, *follow, error
     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: params && JSON.stringify(params), // body data type must match "Content-Type" header
+    body: params, // body data type must match "Content-Type" header
   };
 }
 
-async function sendRequest(url, method = 'GET', params) {
+export async function send(url, method, params, isFormData) {
   const endPoint = `${baseUrl}${url}`;
-  const response = await fetch(endPoint, getOptions(method, params));
+  const response = await fetch(endPoint, getOptions(method, params, isFormData));
   return response.json();
+}
+
+async function sendRequest(url, method = 'GET', params) {
+  return send(url, method, params && JSON.stringify(params));
 }
 
 export default sendRequest;

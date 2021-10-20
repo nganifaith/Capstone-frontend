@@ -1,6 +1,6 @@
 import { getToken } from '../actions/currentUser';
 
-export const baseUrl = 'http://localhost:3000/';
+export const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function getOptions(method, params, isFormData) {
   const headers = {

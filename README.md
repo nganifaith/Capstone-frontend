@@ -47,6 +47,12 @@ This project implements a simple food recipe SPA with data gotten from the test 
 
 - cd to React-Food-Recipe
 - run `npm install`
+- Create a .env in your root directory
+add the following code.
+```
+  REACT_APP_BASE_URL = 'http://localhost:3000/'
+
+```
 - run `git checkout feature/api_calls`
 - run `npm start` app opens on [http://localhost:3001](http://localhost:3001)
 

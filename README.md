@@ -1,10 +1,15 @@
-# Food Recipe App
+# Capstone API
 
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 ## About
 
-This project implements a simple food recipe SPA with data gotten from the test API of themealdb.com. The project is divided into two main sections:
+This project will be submitted as part of my final Microverse Capstone project.It is a frontend application implemented using react to display images of natural sites gotten from a Rail API.
+
+## API Repo
+```
+https://github.com/nganifaith/Seashore-API
+```
 
 ## Home Section:
 

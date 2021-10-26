@@ -22,9 +22,11 @@ import {
 
 import { getUsers } from '../../reducers/randomUsers';
 import RandomUsers from '../../components/RandomUser';
+import useAuth from '../../hooks/useAuth';
 
 const LandingPage = () => {
   const dispatch = useDispatch();
+  const { currentUser } = useAuth();
 
   const users = useSelector(getUsers);
   useEffect(() => {
@@ -42,7 +44,7 @@ const LandingPage = () => {
             There’s a whole world out there, right outside your window. You’d be
             a fool to miss it.
           </h4>
-          <Link to="/login">Start for free</Link>
+          { !currentUser && <Link to="/login">Start for free</Link> }
         </HeaderContent>
       </Header>
       <Content>
@@ -58,7 +60,7 @@ const LandingPage = () => {
               Our yearly visits stats. Focusing a `background-image` on a
               Precise Location with Percentages
             </p>
-            <Link to="/login">Start for free</Link>
+            { !currentUser && <Link to="/login">Start for free</Link> }
           </div>
           <Image src={img} />
         </StatsContent>
@@ -71,7 +73,7 @@ const LandingPage = () => {
                 Our yearly visits stats. Focusing a `background-image` on a
                 Precise Location with Percentages
               </p>
-              <Link to="/login">Start for free</Link>
+              { !currentUser && <Link to="/login">Start for free</Link> }
             </div>
           </div>
         </VisitContent>
@@ -83,7 +85,8 @@ const LandingPage = () => {
       </UserSection>
       <LastSection>
         <h3>Connect with Nature</h3>
-        <Link to="/login">Start for free</Link>
+        {!currentUser && <Link to="/login">Start for free</Link>}
+
       </LastSection>
     </Wrapper>
   );

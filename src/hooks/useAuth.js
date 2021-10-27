@@ -1,13 +1,16 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout, setAuthToken } from '../actions/currentUser';
+import {
+  login, logout, setAuthLoading, setAuthToken,
+} from '../actions/currentUser';
 import { getCurrentUser, signIn as signUserIn, signUp } from '../Api/auth';
 
 export default function useAuth() {
-  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser.user);
+  const loading = useSelector((state) => state.currentUser.loading);
   const isAdmin = currentUser?.email === 'admin@admin.com';
+
+  const setLoading = (value) => dispatch(setAuthLoading(value));
 
   async function loadCurrentUser() {
     setLoading(true);
@@ -31,7 +34,8 @@ export default function useAuth() {
 
   function register(email, username, password, confirmPassword) {
     return signUp(username, email, password, confirmPassword)
-      .then(({ jwt }) => dispatch(setAuthToken(jwt)));
+      .then(({ jwt }) => dispatch(setAuthToken(jwt)))
+      .then(loadCurrentUser);
   }
 
   return {

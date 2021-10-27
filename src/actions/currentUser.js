@@ -1,6 +1,7 @@
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const SET_TOKEN = 'SET_TOKEN';
+export const SET_LOADING = 'SET_LOADING';
 
 const TOKEN_KEY = 'token';
 
@@ -35,5 +36,12 @@ export function setAuthToken(token) {
   return {
     type: SET_TOKEN,
     payload: token,
+  };
+}
+
+export function setAuthLoading(payload) {
+  return {
+    type: SET_LOADING,
+    payload,
   };
 }

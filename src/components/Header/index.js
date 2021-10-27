@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory, useLocation } from 'react-router';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Content, MenuToggler, NavBar, Wrapper,
 } from './Header.styles';
@@ -10,6 +10,7 @@ import useAuth from '../../hooks/useAuth';
 import SearchBar from '../SearchBar';
 import { setSearchTerm } from '../../actions';
 import { logout } from '../../actions/currentUser';
+import { getSearchTerm } from '../../reducers/beachesList';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState();
@@ -18,6 +19,7 @@ const Header = () => {
   const history = useHistory();
   const { currentUser, isAdmin } = useAuth();
   const dispatch = useDispatch();
+  const searchTerm = useSelector(getSearchTerm);
 
   const signOut = (e) => {
     e.preventDefault();
@@ -45,7 +47,7 @@ const Header = () => {
           {!currentUser && <Link to="/signup">Sign Up</Link>}
           {!currentUser && <Link to="/login">Log In</Link>}
         </NavBar>
-        {location.pathname === '/dashboard' && <SearchBar setSearchTerm={(value) => dispatch(setSearchTerm(value))} />}
+        {location.pathname === '/dashboard' && <SearchBar value={searchTerm} setSearchTerm={(value) => dispatch(setSearchTerm(value))} />}
         <MenuToggler onClick={() => setOpen(!open)}>
           <i className="material-icons">menu</i>
         </MenuToggler>

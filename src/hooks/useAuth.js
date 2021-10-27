@@ -4,7 +4,7 @@ import { login, logout, setAuthToken } from '../actions/currentUser';
 import { getCurrentUser, signIn as signUserIn, signUp } from '../Api/auth';
 
 export default function useAuth() {
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser.user);
   const isAdmin = currentUser?.email === 'admin@admin.com';

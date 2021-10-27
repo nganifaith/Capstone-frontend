@@ -14,11 +14,11 @@ export async function randomUsersData() {
 }
 
 export function setFavourite(id) {
-  return sendRequest('favorites#create', 'POST', { beach_id: id });
+  return sendRequest('favorites', 'POST', { beach_id: id });
 }
 
 export function removeFavourite(id) {
-  return sendRequest('favorites#delete', 'DELETE', { beach_id: id });
+  return sendRequest(`favorites/${id}`, 'DELETE', { beach_id: id });
 }
 
 export function createBeach(beach, image) {

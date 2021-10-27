@@ -31,7 +31,7 @@ export default function useAuth() {
 
   function register(email, username, password, confirmPassword) {
     return signUp(username, email, password, confirmPassword)
-      .then(() => signIn(email, password));
+      .then(({ jwt }) => dispatch(setAuthToken(jwt)));
   }
 
   return {

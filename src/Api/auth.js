@@ -1,3 +1,4 @@
+import { getToken } from '../actions/currentUser';
 import sendRequest from './client';
 
 export function signIn(email, password) {
@@ -5,6 +6,7 @@ export function signIn(email, password) {
 }
 
 export function getCurrentUser() {
+  if (!getToken()) return Promise.reject();
   return sendRequest('/me');
 }
 

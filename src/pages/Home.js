@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router';
 import { setBeaches } from '../actions';
@@ -14,7 +14,6 @@ function useQuery() {
 }
 
 const Home = () => {
-  const [error, setError] = useState('');
   const dispatch = useDispatch();
   const { favourites } = useQuery();
   const { userId } = useAuth();
@@ -44,7 +43,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-    setError('');
     beachesData({ searchTerm, favourites: !!favourites }).then((beaches) => {
       dispatch(setBeaches(beaches));
     });
@@ -52,7 +50,6 @@ const Home = () => {
 
   return (
     <div>
-      <span>{error}</span>
       <Main header={!searchTerm ? 'All listings' : `Results for "${searchTerm}"`}>
         {beaches.map((beach) => (
           <Beach key={beach.id} beach={beach} toggleFav={(e) => toggleFav(e, beach)} />

@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`full app rendering/navigating 1`] = `
+Array [
+  <div
+    className="sc-bdfBQB kSOTPF"
+  >
+    <div
+      className="sc-gsTEea ccZMNe"
+    >
+      <form
+        className="sc-dlfnuX jhNcaG"
+        onSubmit={[Function]}
+      >
+        <div
+          className="Error"
+        >
+          
+        </div>
+        <label
+          htmlFor="email"
+        >
+          Email
+          <input
+            id="email"
+            onChange={[Function]}
+            type="email"
+            value=""
+          />
+        </label>
+        <label
+          htmlFor="password"
+        >
+          Password
+          <input
+            id="password"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </label>
+        <button
+          className="sc-hKgJUU hpcpuN"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>,
+  ",",
+]
+`;

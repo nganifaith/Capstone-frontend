@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`full app rendering/navigating 1`] = `
+Array [
+  <div>
+    <span>
+      
+    </span>
+    <div
+      className="sc-bdfBQB lfOvXU"
+    >
+      <h1>
+        Listings -
+         
+        All listings
+      </h1>
+      <div
+        className="sc-gsTEea ipeXrw"
+      />
+    </div>
+  </div>,
+  ",",
+]
+`;

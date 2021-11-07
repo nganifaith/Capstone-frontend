@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# Capstone API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+This project will be submitted as part of my final Microverse Capstone project.It is a frontend application implemented using react to display images of natural sites gotten from a Rail API.
 
-### `npm start`
+## API Repo
+```
+https://github.com/nganifaith/Seashore-API
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Home Section:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    Returns all natural views with their name, rating and location.
 
-### `npm test`
+##### Some functionalities
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- search a natural view using the search bar
+- view details by selecting an image.
+- Signup
+- SignIn
+- Create a new view
+- Add favorite by clicking on the heart icon
+- view all favorites
 
-### `npm run build`
+## favorite section:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    Returns All user's favorites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- The main functionality is to filter images by favorites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Views
 
-### `npm run eject`
+![home](./home.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Home View
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![detail](./details.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Image Detail page
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Built With
 
-## Learn More
+- React
+- Redux
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Setup
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Clone App](https://github.com/nganifaith/Capstone-frontend).
 
-### Code Splitting
+- cd to React-Food-Recipe
+- run `npm install`
+- Create a .env in your root directory
+add the following code.
+```
+  REACT_APP_BASE_URL = 'http://localhost:3000/'
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+- run `git checkout feature/api_calls`
+- run `npm start` app opens on [http://localhost:3001](http://localhost:3001)
 
-### Analyzing the Bundle Size
+## Test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- run test `npm test`
 
-### Making a Progressive Web App
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Knownledge of React
+- JS API calls
+- Redux
+- React styled-components
+- React Router
 
-### Advanced Configuration
+## Live site
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+[Live](https://clever-gates-54ab76.netlify.app/)
 
-### Deployment
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+👤 **Ngani Faith**
 
-### `npm run build` fails to minify
+- GitHub: [@nganifaith](https://github.com/nganifaith)
+- Twitter: [@Bright_Ngani](https://twitter.com/bright_ngani)
+- LinkedIn: [Ngani Faith](https://www.linkedin.com/in/ngani-faith/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/nganifaith/Capstone-frontend/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is [MIT](./LICENSE) licensed

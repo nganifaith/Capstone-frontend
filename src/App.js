@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
 import './App.css';
+import GlobalStyles from './GlobalStyles';
+import useAuth from './hooks/useAuth';
+import Routes from './Routes';
 
 function App() {
+  const { loading, loadCurrentUser } = useAuth();
+  useEffect(() => {
+    loadCurrentUser();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalStyles />
+      { !loading && <Routes />}
     </div>
   );
 }
